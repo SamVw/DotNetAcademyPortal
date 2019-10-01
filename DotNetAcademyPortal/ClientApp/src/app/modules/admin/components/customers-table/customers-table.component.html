@@ -1,0 +1,12 @@
+<table style="width:100%">
+  <tr>
+    <th [colSpan]="2">Hier kunt u de klanten beheren</th>
+  </tr>
+  <tr *ngFor="let customer of customers" class="content-row">
+    <td><a (click)="showDetails(customer.id)">{{ customer.name }}</a></td>
+    <td><button class="button">Beheren</button></td>
+  </tr>
+  <tr *ngIf="!customers || customers.length == 0">
+    <td>Nog geen klanten aanwezig...</td>
+  </tr>
+</table>

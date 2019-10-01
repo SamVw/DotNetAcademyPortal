@@ -1,0 +1,11 @@
+:host, body {
+  display: block;
+  min-height: 100vh;
+  height: auto;
+  min-width: 99%;
+  max-width: 99%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+}

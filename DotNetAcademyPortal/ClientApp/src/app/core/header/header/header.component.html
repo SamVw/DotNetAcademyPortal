@@ -1,0 +1,10 @@
+<div id="header">
+  <h1>
+    <img src="../../../../assets/images/logo.svg" alt="">
+  </h1>
+  <div *ngIf="user" id="user-container">
+    <p>{{ user.userName}} ingelogd</p>
+    <button (click)="logout()">Uitloggen</button>
+  </div>
+</div>
+

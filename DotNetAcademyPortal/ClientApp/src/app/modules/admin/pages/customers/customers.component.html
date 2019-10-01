@@ -1,0 +1,8 @@
+<div id="wrapper">
+  <div id="content-container">
+      <h2>Overzicht van alle klanten</h2>
+      <button class="button" id="new-customer" (click)="openModal()">Nieuwe klant registreren</button>
+      <ngb-alert class="alert" *ngIf="error" type="danger" (close)="close()">{{ error }}</ngb-alert>
+      <app-customers-table (show)="showDetails($event)" [customers]="customers" id="table"></app-customers-table>
+  </div>
+</div>

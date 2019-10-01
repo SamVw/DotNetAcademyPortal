@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  min-width: Calc(100% - 300px - 10px);
+}
+
+#wrapper {
+  min-width: Calc(100% - 300px - 10px);
+  min-height: Calc(100vh - 180px);
+  height: auto;
+  max-height: Calc(100vh - 180px);
+  background-color: #F2F2F2;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+#content-container {
+  display: grid;
+  grid-template-areas:
+    "title new"
+    "alert alert"
+    "table table";
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#new-customer {
+  padding: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 250px;
+}
+
+h2 {
+  line-height: 104px;
+}
+
+.button {
+  background-color: #169BD5;
+  color: white;
+  border-radius: 10px;
+}
+
+#table {
+  grid-area: table;
+}
+
+.alert {
+  margin-top: 30px;
+  grid-area: alert;
+}
