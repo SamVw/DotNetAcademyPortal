@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -12,9 +9,8 @@ using DotNetAcademyPortal.Common.Models;
 using DotNetAcademyPortal.DAL;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
-namespace DotNetAcademyPortal.BL.MediatR.Auth
+namespace DotNetAcademyPortal.BL.MediatR.Customers
 {
     public class CreateCustomerRequestHandler : IRequestHandler<CreateCustomerRequest, CreateCustomerResponse>
     {

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DotNetAcademyPortal.BL.Services;
 using DotNetAcademyPortal.Common.Entities;
+using DotNetAcademyPortal.Common.Interfaces;
 using DotNetAcademyPortal.Common.MediatR.Auth.Requests;
 using DotNetAcademyPortal.Common.MediatR.Auth.Responses;
 using DotNetAcademyPortal.DAL;

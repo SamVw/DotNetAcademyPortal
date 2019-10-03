@@ -2,6 +2,12 @@
   <div>
       <form [formGroup]="loginForm">
           <p class="error" *ngIf="error">{{ error }}</p>
+          <p class="error" *ngIf="loginForm.get('userName').errors && !!loginForm.get('userName').errors.maxlength">
+            E-mail / gebruikersnaam kan maximaal 32 karakters bevatten.
+          </p>
+          <p class="error" *ngIf="loginForm.get('password').errors && !!loginForm.get('password').errors.maxlength">
+              Paswoord kan maximaal 32 karakters bevatten.
+            </p>
           <div class="fgroup">
               <label for="userName">E-mail / gebruikersnaam:</label>
               <input type="text" name="userName" formControlName="userName">

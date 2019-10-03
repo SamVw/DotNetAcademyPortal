@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using DotNetAcademyPortal.Common.Entities;
+using DotNetAcademyPortal.Common.Interfaces;
 using DotNetAcademyPortal.Common.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;

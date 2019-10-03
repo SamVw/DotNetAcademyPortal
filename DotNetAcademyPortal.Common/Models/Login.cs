@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DotNetAcademyPortal.Common.Dtos
+namespace DotNetAcademyPortal.Common.Models
 {
     public class Login
     {
+        [Required]
+        [MaxLength(32)]
         public string UserName { get; set; }
 
+        [Required]
+        [MaxLength(32)]
         public string Password { get; set; }
 
         public bool IsEmpty()

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using DotNetAcademyPortal.Common.Entities;
 
-namespace DotNetAcademyPortal.BL.Services
+namespace DotNetAcademyPortal.Common.Interfaces
 {
     public interface ITokenService
     {

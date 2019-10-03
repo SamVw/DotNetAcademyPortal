@@ -7,6 +7,7 @@ using AutoMapper;
 using DotNetAcademyPortal.BL.MediatR.Auth;
 using DotNetAcademyPortal.BL.Profiles;
 using DotNetAcademyPortal.BL.Services;
+using DotNetAcademyPortal.Common.Interfaces;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 

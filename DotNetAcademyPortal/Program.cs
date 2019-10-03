@@ -1,12 +1,11 @@
 using System;
-using DotNetAcademyPortal.ServiceLayer;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
 
-namespace DotNetAcademyPortal
+namespace DotNetAcademyPortal.ServiceLayer
 {
     public class Program
     {

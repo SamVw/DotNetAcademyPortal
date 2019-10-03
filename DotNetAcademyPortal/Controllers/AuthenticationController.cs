@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DotNetAcademyPortal.Common.Dtos;
 using DotNetAcademyPortal.Common.MediatR.Auth.Requests;
+using DotNetAcademyPortal.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
