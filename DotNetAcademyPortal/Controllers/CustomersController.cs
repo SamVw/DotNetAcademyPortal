@@ -23,6 +23,32 @@ namespace DotNetAcademyPortal.ServiceLayer.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = "Customer")]
+        [HttpGet("authenticated/{id}")]
+        public async Task<IActionResult> GetAuthenticatedAsync(string id)
+        {
+            var result = await _mediator.Send(new GetAuthenticatedCustomerRequest() { RouteId = id, UserName = User.Identity.Name });
+            if (result.Error != null)
+            {
+                return Unauthorized(result.Error);
+            }
+
+            return Ok(result.Customer);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAsync(string id)
+        {
+            var result = await _mediator.Send(new GetCustomerRequest() {Id = id});
+            if (result.Customer == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(result.Customer);
+        }
+
         [Authorize(Roles = "Administrator")]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] CustomerDto customer)
@@ -61,7 +87,7 @@ namespace DotNetAcademyPortal.ServiceLayer.Controllers
                 return BadRequest(result.Error);
             }
 
-            return Ok();
+            return Ok(result.Customer);
         }
     }
 }

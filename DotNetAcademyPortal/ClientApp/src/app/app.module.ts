@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { LoginModule } from './modules/login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { CustomerModule } from './modules/customer/customer.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdminModule } from './modules/admin/admin.module';
     SharedModule,
     CoreModule,
     LoginModule,
-    AdminModule
+    AdminModule,
+    CustomerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

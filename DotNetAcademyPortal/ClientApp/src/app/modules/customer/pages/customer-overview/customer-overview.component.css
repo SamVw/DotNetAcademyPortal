@@ -1,0 +1,33 @@
+:host, body {
+  display: block;
+  min-height: Calc(100vh - 175px);
+  height: auto;
+  min-width: 99%;
+  max-width: 99%;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#content-container {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "alert alert"
+    "table table";
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#title-area {
+  grid-area: title;
+}
+
+.error {
+  grid-area: alert;
+}
+
+#table {
+  grid-area: table;
+}

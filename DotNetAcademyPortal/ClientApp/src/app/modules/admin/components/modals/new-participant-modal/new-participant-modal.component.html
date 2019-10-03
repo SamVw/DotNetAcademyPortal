@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Nieuwe deelnemer</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h5>Informatie deelnemer</h5>
+    <ul class="error-container" *ngIf="!form.valid">
+        <li class="error" *ngIf="form.get('name').errors && !!form.get('name').errors.required">
+            Naam is verplicht.
+        </li>
+        <li class="error" *ngIf="form.get('name').errors && !!form.get('name').errors.maxlength">
+            Naam is maximaal 32 karakters lang.
+        </li>
+        <li class="error" *ngIf="form.get('email').errors && !!form.get('email').errors.required">
+            E-mail is verplicht.
+        </li>
+        <li class="error" *ngIf="form.get('email').errors && !!form.get('email').errors.maxlength">
+          E-mail is maximaal 32 karakters lang.
+        </li>
+        <li class="error" *ngIf="form.get('email').errors && !!form.get('email').errors.email">
+          E-mail is niet correct gevormd (bv: test@test.com).
+        </li>
+        <li class="error" *ngIf="form.get('startDate').errors && !!form.get('startDate').errors.required">
+          Start datum is verplicht.
+        </li>
+        <li class="error" *ngIf="form.get('endDate').errors && !!form.get('endDate').errors.required">
+            Eind datum is verplicht.
+        </li>
+    </ul>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="name">Naam</label>
+        <input type="text" name="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" name="email"  formControlName="email">
+      </div>
+      <div class="form-group datepickers">
+        <div>
+            <label>Start datum</label>
+            <ngb-datepicker [maxDate]="maxDate" (select)="onDateChange($event)" formControlName="startDate" #d></ngb-datepicker>
+        </div>
+        <div>
+            <label>Eind datum</label>
+            <ngb-datepicker [minDate]="minDate" (select)="onDateChange($event)" formControlName="endDate" #d></ngb-datepicker>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button [disabled]="!form.valid" type="button" class="btn btn-outline-dark" (click)="activeModal.close(form)">Aanmaken</button>
+  </div>

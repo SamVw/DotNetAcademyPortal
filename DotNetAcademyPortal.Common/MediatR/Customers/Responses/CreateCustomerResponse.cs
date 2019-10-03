@@ -11,6 +11,6 @@ namespace DotNetAcademyPortal.Common.MediatR.Customers.Responses
     {
         public string Error { get; set; }
 
-        private CustomerDto Customer { get; set; }
+        public CustomerDto Customer { get; set; }
     }
 }

@@ -1,0 +1,15 @@
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  line-height: 32px;
+  height: 32px;
+}
+
+.error-container {
+  border: 1px solid red;
+}
+
+.error-container li {
+  color: red;
+  display: block;
+}

@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace DotNetAcademyPortal.ServiceLayer
 {
@@ -40,6 +41,8 @@ namespace DotNetAcademyPortal.ServiceLayer
             services.AddJwtAuthentication(appSettingsSection.Get<AppSettings>());
 
             services.AddCustomServices();
+
+            services.AddAuthorization();
 
             services.AddDbConfig(Configuration);
 
@@ -70,6 +73,8 @@ namespace DotNetAcademyPortal.ServiceLayer
             app.UseSpaStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseSerilogRequestLogging();
 
             app.UseMvc();
 

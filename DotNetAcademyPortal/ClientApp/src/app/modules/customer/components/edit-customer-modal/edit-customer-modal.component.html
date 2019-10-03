@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Deelnemer: {{ _nameO }}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+    <ul class="error-container" *ngIf="AnyErrors()">
+        <li class="error" *ngIf="_nameC.length === 0">
+            Naam is verplicht.
+        </li>
+        <li class="error" *ngIf="_nameC.length > 32">
+            Naam is maximaal 32 karakters lang.
+        </li>
+    </ul>
+  <div class="form-group">
+      <label for="name">Naam</label>
+      <input class="form-control" name="name" type="text" [(ngModel)]="_nameC">
+  </div>
+</div>
+<div class="modal-footer">
+  <button [disabled]="AnyErrors()" type="button" class="btn btn-outline-dark" (click)="activeModal.close(_nameC)">Aanpassen</button>
+</div>

@@ -20,6 +20,8 @@ namespace DotNetAcademyPortal.Common.Entities
 
         public int MaxAllowedParticipants { get; set; }
 
+        public List<Participant> Participants { get; set; }
+
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

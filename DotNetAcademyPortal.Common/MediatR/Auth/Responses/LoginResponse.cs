@@ -15,5 +15,6 @@ namespace DotNetAcademyPortal.Common.MediatR.Auth.Responses
         public bool IsAdmin { get; set; }
 
         public string Error { get; set; }
+        public string Id { get; set; }
     }
 }

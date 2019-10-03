@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
+    console.log(form.get('userName').value);
+    console.log(form.get('password').value);
     const userName = form.get('userName').value;
     const password = form.get('password').value;
     this.error = null;

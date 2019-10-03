@@ -1,0 +1,8 @@
+.error-container {
+  border: 1px solid red;
+}
+
+.error-container li {
+  color: red;
+  display: block;
+}

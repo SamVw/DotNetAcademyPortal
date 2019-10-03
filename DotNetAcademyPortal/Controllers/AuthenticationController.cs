@@ -25,14 +25,14 @@ namespace DotNetAcademyPortal.ServiceLayer.Controllers
 
         [AllowAnonymous]
         [HttpPost, Route("login")]
-        public async Task<IActionResult> Login([FromBody] Login login)
+        public IActionResult Login([FromBody] Login login)
         {
             if (login == null || login.IsEmpty())
             {
                 return BadRequest("Invalid data");
             }
 
-            var result = await _mediator.Send(new LoginRequest() {Login = login});
+            var result = _mediator.Send(new LoginRequest() {Login = login}).Result;
 
             if (!string.IsNullOrEmpty(result.Token))
             {

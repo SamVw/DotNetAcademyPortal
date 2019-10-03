@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { NewCustomerModalComponent } from '../../components/new-customer-modal/new-customer-modal.component';
+import { NewCustomerModalComponent } from '../../components/modals/new-customer-modal/new-customer-modal.component';
 import { FormGroup } from '@angular/forms';
 import { ICustomer } from 'src/app/shared/models/ICustomer';
 import { CustomerService } from 'src/app/core/services/customer.service';
-import { DetailCustomerModalComponent } from '../../components/detail-customer-modal/detail-customer-modal.component';
+import { DetailCustomerModalComponent } from '../../components/modals/detail-customer-modal/detail-customer-modal.component';
 
 @Component({
   selector: 'app-customers',
@@ -23,7 +23,9 @@ export class CustomersComponent implements OnInit {
   }
 
   openModal() {
-    this.modal.open(NewCustomerModalComponent).result.then(
+    this.modal.open(NewCustomerModalComponent, {
+      backdrop: 'static'
+    }).result.then(
       result => this.addCustomer(result),
       reason => console.log(reason));
   }
@@ -42,15 +44,20 @@ export class CustomersComponent implements OnInit {
 
     this.customerService.addCustomer(customer).subscribe(
       res => {
-        this.customers.push(customer);
+        console.log(res);
+        this.customers.push(res);
       },
-      err => this.error = err.error
+      err => {
+        this.error = err.error;
+      }
     );
   }
 
   showDetails(id: string) {
     const customer = this.customers.find(c => c.id === id);
-    const ref = this.modal.open(DetailCustomerModalComponent);
+    const ref = this.modal.open(DetailCustomerModalComponent, {
+      backdrop: 'static'
+    });
     ref.componentInstance.customer = customer;
     ref.result.then(
       result => this.SaveChanges(result, customer),

@@ -7,7 +7,7 @@
   min-width: Calc(100% - 300px - 10px);
   min-height: Calc(100vh - 180px);
   height: auto;
-  max-height: Calc(100vh - 180px);
+
   background-color: #F2F2F2;
   border: 2px solid black;
   border-radius: 15px;

@@ -1,0 +1,12 @@
+<table style="width:100%">
+  <tr>
+    <th [colSpan]="2">Hier kunt u de klanten beheren</th>
+  </tr>
+  <tr *ngFor="let customer of customers" class="content-row">
+    <td><a (click)="showDetails(customer.id)" ngbTooltip="Details bekijken / bewerken">{{ customer.name }}</a></td>
+    <td><button class="button" [routerLink]="['/admin/customers/' + customer.id]" routerLinkActive="router-link-active" >Beheren</button></td>
+  </tr>
+  <tr *ngIf="!customers || customers.length == 0">
+    <td>Nog geen klanten aanwezig...</td>
+  </tr>
+</table>

@@ -94,6 +94,29 @@ namespace DotNetAcademyPortal.DAL.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("DotNetAcademyPortal.Common.Entities.Participant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CustomerId");
+
+                    b.Property<string>("Email");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<string>("Name");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Participants");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -222,6 +245,13 @@ namespace DotNetAcademyPortal.DAL.Migrations
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DotNetAcademyPortal.Common.Entities.Participant", b =>
+                {
+                    b.HasOne("DotNetAcademyPortal.Common.Entities.Customer", "Customer")
+                        .WithMany("Participants")
+                        .HasForeignKey("CustomerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

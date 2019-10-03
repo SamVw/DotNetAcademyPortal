@@ -1,0 +1,11 @@
+<div *ngIf="customer" id="wrapper">
+  <div id="content-container">
+    <div id="title-area">
+        <h2>Deelnemers van {{ customer.name }}</h2>
+        <strong *ngIf="participants">{{participants.length + ' / ' + customer.maxAllowedParticipants }}</strong>
+    </div>
+    <button [disabled]="maxAmountReached()" [ngClass]="{'disabled': maxAmountReached()}" class="button" id="new-customer" (click)="openModal()">Nieuwe deelnemer registreren</button>
+    <ngb-alert class="alert" *ngIf="error" type="danger" (close)="close()">{{ error }}</ngb-alert>
+    <app-participants-table (edit)="editParticipant($event)" [participants]="participants" id="table"></app-participants-table>
+  </div>
+</div>

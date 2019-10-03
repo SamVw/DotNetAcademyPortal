@@ -8,6 +8,7 @@ using AutoMapper;
 using DotNetAcademyPortal.Common.Entities;
 using DotNetAcademyPortal.Common.MediatR.Customers.Requests;
 using DotNetAcademyPortal.Common.MediatR.Customers.Responses;
+using DotNetAcademyPortal.Common.Models;
 using DotNetAcademyPortal.DAL;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -45,10 +46,11 @@ namespace DotNetAcademyPortal.BL.MediatR.Auth
             var result = await _userManager.CreateAsync(c.ApplicationUser, "@Test123");
             if (result.Succeeded)
             {
+                result = await _userManager.AddToRoleAsync(c.ApplicationUser, "Customer");
                 _context.Customers.Add(c);
                 await _context.SaveChangesAsync(cancellationToken);
 
-                return new CreateCustomerResponse();
+                return new CreateCustomerResponse() { Customer = _mapper.Map<CustomerDto>(c) };
             }
 
             return new CreateCustomerResponse() { Error = result.Errors.Aggregate("", (current, next) => current += next.Description) };

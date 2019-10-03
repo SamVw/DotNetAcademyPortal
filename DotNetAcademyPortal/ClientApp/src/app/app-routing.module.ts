@@ -8,6 +8,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./modules/login/login.module').then(mod => mod.LoginModule) },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(mod => mod.AdminModule) },
+  { path: 'customer', loadChildren: () => import('./modules/customer/customer.module').then(mod => mod.CustomerModule) },
 ];
 
 @NgModule({
@@ -15,7 +16,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: true, // <-- debugging purposes only
         preloadingStrategy: PreloadAllModules
       }
     )

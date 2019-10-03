@@ -1,5 +1,5 @@
 #form-container {
-  width: 500px;
+  width: 550px;
   height: 300px;
   background-color: #797979;
   border-radius: 8px;
@@ -8,7 +8,7 @@
 }
 
 form {
-  width: 330px;
+  width: 400px;
   display: inline-block;
   align-self: center;
 }
@@ -34,11 +34,11 @@ form {
 }
 
 .fgroup label {
-  width: 40%;
+  width: 50%;
 }
 
 .fgroup input, .fgroup button {
-  width: 59%;
+  width: 50%;
 }
 
 div button {
