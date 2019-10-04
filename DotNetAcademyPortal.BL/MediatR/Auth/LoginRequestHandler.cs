@@ -23,26 +23,23 @@ namespace DotNetAcademyPortal.BL.MediatR.Auth
     {
         private readonly ITokenService _tokenService;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly DotNetAcademyPortalDbContext _context;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IDataContext _context;
 
-        public LoginRequestHandler(ITokenService tokenService, UserManager<ApplicationUser> userManager, DotNetAcademyPortalDbContext context, SignInManager<ApplicationUser> signInManager)
+        public LoginRequestHandler(ITokenService tokenService, UserManager<ApplicationUser> userManager, IDataContext context)
         {
             _tokenService = tokenService;
             _userManager = userManager;
             _context = context;
-            _signInManager = signInManager;
         }
 
-        async Task<LoginResponse> IRequestHandler<LoginRequest, LoginResponse>.Handle(LoginRequest request, CancellationToken cancellationToken)
+        public async Task<LoginResponse> Handle(LoginRequest request, CancellationToken cancellationToken)
         {
             var theUser = await _userManager.FindByNameAsync(request.Login.UserName);
             if (theUser != null && await _userManager.CheckPasswordAsync(theUser, request.Login.Password))
             {
                 var token = await _tokenService.GenerateToken(theUser);
-                await _signInManager.SignInAsync(theUser, true);
                 var isAdmin = await _userManager.IsInRoleAsync(theUser, "Administrator");
-                var name = isAdmin ? theUser.UserName : _context.Customers.First(c => c.CustomerId == theUser.Id).Name;
+                var name = isAdmin ? theUser.UserName : _context.Customers.First(c => c.ApplicationUser.UserName == theUser.UserName).Name;
                 return new LoginResponse()
                 {
                     Token = token,

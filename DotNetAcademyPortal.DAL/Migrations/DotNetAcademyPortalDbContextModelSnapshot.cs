@@ -83,11 +83,15 @@ namespace DotNetAcademyPortal.DAL.Migrations
                 {
                     b.Property<string>("CustomerId");
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(32);
 
                     b.Property<int>("MaxAllowedParticipants");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(32);
 
                     b.HasKey("CustomerId");
 
@@ -100,13 +104,18 @@ namespace DotNetAcademyPortal.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CustomerId");
+                    b.Property<string>("CustomerId")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(32);
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(32);
 
                     b.Property<DateTime>("StartDate");
 
@@ -251,7 +260,8 @@ namespace DotNetAcademyPortal.DAL.Migrations
                 {
                     b.HasOne("DotNetAcademyPortal.Common.Entities.Customer", "Customer")
                         .WithMany("Participants")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

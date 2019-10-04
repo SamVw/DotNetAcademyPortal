@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DotNetAcademyPortal.DAL
 {
-    public class DotNetAcademyPortalDbContext : IdentityDbContext<ApplicationUser>
+    public class DotNetAcademyPortalDbContext : IdentityDbContext<ApplicationUser>, IDataContext
     {
         public DotNetAcademyPortalDbContext(DbContextOptions options) : base(options)
         {

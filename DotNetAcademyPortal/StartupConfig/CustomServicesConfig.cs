@@ -8,6 +8,7 @@ using DotNetAcademyPortal.BL.MediatR.Auth;
 using DotNetAcademyPortal.BL.Profiles;
 using DotNetAcademyPortal.BL.Services;
 using DotNetAcademyPortal.Common.Interfaces;
+using DotNetAcademyPortal.DAL;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +19,7 @@ namespace DotNetAcademyPortal.ServiceLayer.StartupConfig
         public static IServiceCollection AddCustomServices(this IServiceCollection services)
         {
             services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<IDataContext, DotNetAcademyPortalDbContext>();
 
             services.AddAutoMapper(typeof(CustomerProfile).Assembly);
             services.AddMediatR(typeof(LoginRequestHandler).Assembly);

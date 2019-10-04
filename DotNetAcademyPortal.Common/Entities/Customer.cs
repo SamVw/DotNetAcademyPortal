@@ -14,14 +14,20 @@ namespace DotNetAcademyPortal.Common.Entities
         [ForeignKey("ApplicationUser")]
         public string CustomerId { get; set; }
 
+        [Required]
+        [MaxLength(32)]
         public string Name { get; set; }
 
+        [Required]
+        [MaxLength(32)]
         public string Address { get; set; }
 
+        [Required]
+        [Range(1,100)]
         public int MaxAllowedParticipants { get; set; }
 
         public List<Participant> Participants { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

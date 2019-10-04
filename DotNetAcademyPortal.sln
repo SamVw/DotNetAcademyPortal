@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAcademyPortal.ServiceLayer", "DotNetAcademyPortal\DotNetAcademyPortal.ServiceLayer.csproj", "{AFC3B891-14CA-4760-BC0B-97E08CF216ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAcademyPortal.ServiceLayer", "DotNetAcademyPortal\DotNetAcademyPortal.ServiceLayer.csproj", "{AFC3B891-14CA-4760-BC0B-97E08CF216ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAcademyPortal.BL", "DotNetAcademyPortal.BL\DotNetAcademyPortal.BL.csproj", "{EA33AAFA-6CD6-44F0-8E6F-97655925E645}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAcademyPortal.BL", "DotNetAcademyPortal.BL\DotNetAcademyPortal.BL.csproj", "{EA33AAFA-6CD6-44F0-8E6F-97655925E645}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAcademyPortal.DAL", "DotNetAcademyPortal.DAL\DotNetAcademyPortal.DAL.csproj", "{71BCAA27-E7FD-46AF-B3D0-829F60295208}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAcademyPortal.DAL", "DotNetAcademyPortal.DAL\DotNetAcademyPortal.DAL.csproj", "{71BCAA27-E7FD-46AF-B3D0-829F60295208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAcademyPortal.Common", "DotNetAcademyPortal.Common\DotNetAcademyPortal.Common.csproj", "{8DF89ADE-40C2-4699-80AA-E3BA2A4A6125}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAcademyPortal.Common", "DotNetAcademyPortal.Common\DotNetAcademyPortal.Common.csproj", "{8DF89ADE-40C2-4699-80AA-E3BA2A4A6125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAcademyPortal.Test", "DotNetAcademyPortal.Test\DotNetAcademyPortal.Test.csproj", "{21BB4275-410B-45BD-8458-A1BFFEA12256}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8DF89ADE-40C2-4699-80AA-E3BA2A4A6125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DF89ADE-40C2-4699-80AA-E3BA2A4A6125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DF89ADE-40C2-4699-80AA-E3BA2A4A6125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21BB4275-410B-45BD-8458-A1BFFEA12256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BB4275-410B-45BD-8458-A1BFFEA12256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21BB4275-410B-45BD-8458-A1BFFEA12256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21BB4275-410B-45BD-8458-A1BFFEA12256}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
