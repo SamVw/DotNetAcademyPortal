@@ -28,6 +28,6 @@ namespace DotNetAcademyPortal.Common.Entities
 
         public List<Participant> Participants { get; set; }
 
-        public ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

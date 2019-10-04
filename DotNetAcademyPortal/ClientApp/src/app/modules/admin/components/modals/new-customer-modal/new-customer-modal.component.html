@@ -29,7 +29,13 @@
         E-mail is niet correct gevormd (bv: test@test.com).
       </li>
       <li class="error" *ngIf="form.get('maxParticipants').errors && !!form.get('maxParticipants').errors.required">
-          Maximum aantal deelnemers is verplicht.
+        Maximum aantal deelnemers is verplicht.
+      </li>
+      <li class="error" *ngIf="form.get('maxParticipants').errors && !!form.get('maxParticipants').errors.max">
+        Maximum 100 deelnemers toegelaten.
+      </li>
+      <li class="error" *ngIf="form.get('maxParticipants').errors && !!form.get('maxParticipants').errors.min">
+        Minimum 1 deelnemer toegelaten.
       </li>
   </ul>
   <form [formGroup]="form">
