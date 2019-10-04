@@ -58,17 +58,6 @@ namespace DotNetAcademyPortal.ServiceLayer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
-            app.UpdateDatabase();
-
-            if (env.IsDevelopment())
-            {
-                // app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // app.UseExceptionHandler("/Error");
-            }
-
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
@@ -78,9 +67,9 @@ namespace DotNetAcademyPortal.ServiceLayer
 
             app.UseMvc();
 
-            app.UseSpa(env);
+            app.InitializeAndMigrateDatabase(serviceProvider, Configuration).Wait();
 
-            app.CreateRoles(serviceProvider, Configuration).Wait();
+            app.UseSpa(env);
         }
     }
 }
