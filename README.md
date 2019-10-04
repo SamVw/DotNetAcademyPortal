@@ -11,3 +11,12 @@ Features:
     - Limiet kan niet overschreden worden
 - Overzicht van deelnemers voor klant ( Customer):
     - Enkel naam kan aangepast worden
+
+
+Installeren en opstarten programma:
+- Ctrl + F5 in Visual Studio 
+- Aanmaken en migraties van database gebeuren vanzelf
+
+Admin account (automatisch gegenereerd):
+- username: Admin
+- passwoord: @Admin123
