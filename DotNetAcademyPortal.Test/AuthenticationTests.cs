@@ -10,6 +10,7 @@ using DotNetAcademyPortal.Common.Entities;
 using DotNetAcademyPortal.Common.MediatR.Auth.Requests;
 using DotNetAcademyPortal.Common.Models;
 using DotNetAcademyPortal.DAL;
+using DotNetAcademyPortal.Test.Helpers;
 using DotNetAcademyPortal.Test.Mocks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -72,7 +73,7 @@ namespace DotNetAcademyPortal.Test
                     }
                 }
             };
-            var cs = CreateDbSetMock(customers.AsEnumerable());
+            var cs = DbSetHelper.CreateDbSetMock(customers.AsEnumerable());
             context = new Mock<IDataContext>();
             context.Setup(x => x.Customers)
                 .Returns(cs.Object);
@@ -121,19 +122,6 @@ namespace DotNetAcademyPortal.Test
             var response = await handler.Handle(request, new CancellationToken());
 
             Assert.NotNull(response.Error);
-        }
-
-        private static Mock<DbSet<T>> CreateDbSetMock<T>(IEnumerable<T> elements) where T : class
-        {
-            var elementsAsQueryable = elements.AsQueryable();
-            var dbSetMock = new Mock<DbSet<T>>();
-
-            dbSetMock.As<IQueryable<T>>().Setup(m => m.Provider).Returns(elementsAsQueryable.Provider);
-            dbSetMock.As<IQueryable<T>>().Setup(m => m.Expression).Returns(elementsAsQueryable.Expression);
-            dbSetMock.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(elementsAsQueryable.ElementType);
-            dbSetMock.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(elementsAsQueryable.GetEnumerator());
-
-            return dbSetMock;
         }
     }
 }

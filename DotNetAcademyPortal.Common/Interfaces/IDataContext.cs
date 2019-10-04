@@ -1,4 +1,6 @@
-﻿using DotNetAcademyPortal.Common.Entities;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using DotNetAcademyPortal.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetAcademyPortal.DAL
@@ -8,5 +10,7 @@ namespace DotNetAcademyPortal.DAL
         DbSet<Admin> Admins { get; set; }
         DbSet<Customer> Customers { get; set; }
         DbSet<Participant> Participants { get; set; }
+
+        Task<int> SaveChangesAsync();
     }
 }

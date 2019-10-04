@@ -19,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotNetAcademyPortal.BL\DotNetAcademyPortal.BL.csproj" />
     <ProjectReference Include="..\DotNetAcademyPortal.Common\DotNetAcademyPortal.Common.csproj" />
+    <ProjectReference Include="..\DotNetAcademyPortal.DAL\DotNetAcademyPortal.DAL.csproj" />
     <ProjectReference Include="..\DotNetAcademyPortal\DotNetAcademyPortal.ServiceLayer.csproj" />
   </ItemGroup>
 

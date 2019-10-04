@@ -16,16 +16,16 @@ namespace DotNetAcademyPortal.BL.MediatR.Customers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
-        private readonly DotNetAcademyPortalDbContext _context;
+        private readonly IDataContext _context;
 
-        public CreateCustomerRequestHandler(UserManager<ApplicationUser> userManager, IMapper mapper, DotNetAcademyPortalDbContext context)
+        public CreateCustomerRequestHandler(UserManager<ApplicationUser> userManager, IMapper mapper, IDataContext context)
         {
             _userManager = userManager;
             _mapper = mapper;
             _context = context;
         }
 
-        async Task<CreateCustomerResponse> IRequestHandler<CreateCustomerRequest, CreateCustomerResponse>.Handle(CreateCustomerRequest request, CancellationToken cancellationToken)
+        public async Task<CreateCustomerResponse> Handle(CreateCustomerRequest request, CancellationToken cancellationToken)
         {
             Customer c = _mapper.Map<Customer>(request.Customer);
             c.ApplicationUser = new ApplicationUser()
@@ -44,7 +44,7 @@ namespace DotNetAcademyPortal.BL.MediatR.Customers
             {
                 result = await _userManager.AddToRoleAsync(c.ApplicationUser, "Customer");
                 _context.Customers.Add(c);
-                await _context.SaveChangesAsync(cancellationToken);
+                var r = await _context.SaveChangesAsync();
 
                 return new CreateCustomerResponse() { Customer = _mapper.Map<CustomerDto>(c) };
             }

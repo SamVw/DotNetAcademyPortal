@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DotNetAcademyPortal.Common.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -20,5 +21,10 @@ namespace DotNetAcademyPortal.DAL
         public DbSet<Customer> Customers { get; set; }
 
         public DbSet<Participant> Participants { get; set; }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return base.SaveChangesAsync();
+        }
     }
 }
