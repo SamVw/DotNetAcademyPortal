@@ -31,6 +31,9 @@
 ## Non-functional requirements:
 - exception handling
 - Dependency injection
-- Logging
+- Logging ( zie /logs )
 - Unit tests
 - Database setup
+
+## Mediator
+Voor de communicatie tussen de service en business laag is gebruik gemaakt van het Mediator Design Pattern. Hierdoor zijn beide lagen loosely coupled en gescheiden van elkaar.
